@@ -88,7 +88,8 @@ public class RoomActivity extends AppCompatActivity {
     mForceH264 = preferences.getBoolean("forceH264", false);
     mForceVP9 = preferences.getBoolean("forceVP9", false);
     if (TextUtils.isEmpty(mRoomId)) {
-      mRoomId = getRandomString(8);
+      //mRoomId = getRandomString(8);
+      mRoomId = "broadcaster";
       preferences.edit().putString("roomId", mRoomId).apply();
     }
     if (TextUtils.isEmpty(mPeerId)) {

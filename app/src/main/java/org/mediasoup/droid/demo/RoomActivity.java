@@ -30,6 +30,7 @@ import com.nabinbhandari.android.permissions.Permissions;
 import org.mediasoup.droid.Logger;
 import org.mediasoup.droid.MediasoupClient;
 import org.mediasoup.droid.demo.adapter.PeerAdapter;
+import org.mediasoup.droid.demo.base.ProJActivity;
 import org.mediasoup.droid.demo.databinding.ActivityRoomBinding;
 import org.mediasoup.droid.demo.vm.EdiasProps;
 import org.mediasoup.droid.demo.vm.MeProps;
@@ -44,7 +45,7 @@ import org.mediasoup.droid.lib.model.Peer;
 
 import java.util.List;
 
-public class RoomActivity extends AppCompatActivity {
+public class RoomActivity extends ProJActivity {
 
   private static final String TAG = RoomActivity.class.getSimpleName();
   private static final int REQUEST_CODE_SETTING = 1;
@@ -276,7 +277,7 @@ public class RoomActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+  public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     if (requestCode == REQUEST_CODE_SETTING) {
       Logger.d(TAG, "request config done");
       // close, dispose room related and clear store.

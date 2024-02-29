@@ -11,8 +11,8 @@ public class UrlFactory {
 
   //https://82.157.172.119:4443
   //
-//  private static final String HOSTNAME = "v3demo.mediasoup.org";
-  private static final String HOSTNAME = "82.157.172.119";
+  private static final String HOSTNAME = "v3demo.mediasoup.org";
+//  private static final String HOSTNAME = "82.157.172.119";
   //  private static final String HOSTNAME = "192.168.1.103";
   private static final int PORT = 4443;
 

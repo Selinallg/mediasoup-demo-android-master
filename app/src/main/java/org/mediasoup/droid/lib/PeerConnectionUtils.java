@@ -270,7 +270,7 @@ public class PeerConnectionUtils {
 
 
         // camera 画面
-        if (false) {
+        if (true) {
 
             mVideoSource = mPeerConnectionFactory.createVideoSource(false);
             SurfaceTextureHelper surfaceTextureHelper =
@@ -283,7 +283,7 @@ public class PeerConnectionUtils {
 
 
         // 截屏 画面
-        if (true) {
+        if (false) {
             // 权限请求后获得
             Intent intent = mMediaProjectionPermissionResultData;
             Log.d(TAG, "createVideoSource: intent="+intent);

@@ -16,6 +16,10 @@ public class RoomOptions {
   private boolean mConsume = true;
   // Whether we want DataChannels.
   private boolean mUseDataChannel;
+  // 使能 mic 功能 add by llg
+  private boolean mEnableMic = false;
+  // 是否需要预览本地画面
+  private boolean mPreview = false;
 
   public RoomOptions setDevice(@NonNull DeviceInfo device) {
     this.mDevice = device;
@@ -42,6 +46,17 @@ public class RoomOptions {
     return this;
   }
 
+
+  public RoomOptions setEnableMic(boolean mEnableMic) {
+    this.mEnableMic = mEnableMic;
+    return this;
+  }
+
+  public RoomOptions setPreview(boolean mPreview) {
+    this.mPreview = mPreview;
+    return this;
+  }
+
   @NonNull
   public DeviceInfo getDevice() {
     return mDevice;
@@ -62,4 +77,13 @@ public class RoomOptions {
   public boolean isUseDataChannel() {
     return mUseDataChannel;
   }
+
+  public boolean isEnableMic() {
+    return mEnableMic;
+  }
+
+  public boolean isPreview() {
+    return mPreview;
+  }
+
 }

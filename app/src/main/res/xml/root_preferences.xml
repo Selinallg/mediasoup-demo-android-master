@@ -72,6 +72,16 @@
             app:title="@string/camera"
             app:useSimpleSummaryProvider="true" />
 
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="mic"
+            app:title="@string/mic" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="preview"
+            app:title="@string/preview" />
+
 <!--        <SwitchPreferenceCompat-->
 <!--            app:key="sync"-->
 <!--            app:title="@string/sync_title" />-->

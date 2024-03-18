@@ -24,6 +24,8 @@
     <string name="produce">produce</string>
     <string name="consume">consume</string>
     <string name="dataChannel">dataChannel</string>
+    <string name="mic">mic</string>
+    <string name="preview">preview</string>
     <string name="force_vp9">forceVP9</string>
 
     <!-- Device Preferences -->

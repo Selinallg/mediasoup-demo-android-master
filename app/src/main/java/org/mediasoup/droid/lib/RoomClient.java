@@ -620,6 +620,11 @@ public class RoomClient extends RoomMessageHandler {
         // TODO(feature): stats
     }
 
+    public RoomOptions getRoomOptions() {
+        return mOptions;
+    }
+
+
     @Async
     public void close() {
         if (this.mClosed) {
@@ -791,7 +796,7 @@ public class RoomClient extends RoomMessageHandler {
 
             // Create mediasoup Transport for sending (unless we don't want to produce).
             boolean is_produce = mOptions.isProduce();
-            Log.d(TAG, "joinImpl: is_produce="+is_produce);
+            Log.d(TAG, "joinImpl: is_produce=" + is_produce);
             if (mOptions.isProduce()) {
                 createSendTransport();
             }
@@ -829,8 +834,11 @@ public class RoomClient extends RoomMessageHandler {
             if (mOptions.isProduce()) {
                 boolean canSendMic = mMediasoupDevice.canProduce("audio");
                 boolean canSendCam = mMediasoupDevice.canProduce("video");
+                // TODO: 2024/3/15 用户配置 llg
                 mStore.setMediaCapabilities(canSendMic, canSendCam);
-                mMainHandler.post(this::enableMic);
+                if (mOptions.isEnableMic()) {
+                    mMainHandler.post(this::enableMic);
+                }
                 mMainHandler.post(this::enableCam);
             }
         } catch (Exception e) {

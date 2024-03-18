@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -108,7 +109,13 @@ public class RoomActivity extends ProJActivity {
     mOptions.setForceTcp(preferences.getBoolean("forceTcp", false));
     mOptions.setUseDataChannel(preferences.getBoolean("dataChannel", true));
 
+
     // Device config.
+    // mic add by llg
+    mOptions.setEnableMic(preferences.getBoolean("mic", false));
+    // preview add by llg
+    mOptions.setPreview(preferences.getBoolean("preview", false));
+
     String camera = preferences.getString("camera", "front");
     PeerConnectionUtils.setPreferCameraFace(camera);
 

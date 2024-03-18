@@ -1,2 +1,3 @@
 include ':app'
-include ':mediasoup'
+include ':mediartc'
+include ':mediaclient'

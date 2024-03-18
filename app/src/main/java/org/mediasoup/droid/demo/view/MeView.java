@@ -13,12 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 
+import com.nolovr.core.mediasoup.lib.PeerConnectionUtils;
+import com.nolovr.core.mediasoup.lib.RoomClient;
+import com.nolovr.core.mediasoup.lib.RoomOptions;
+
 import org.mediasoup.droid.demo.R;
 import org.mediasoup.droid.demo.databinding.ViewMeBindingImpl;
 import org.mediasoup.droid.demo.vm.MeProps;
-import org.mediasoup.droid.lib.PeerConnectionUtils;
-import org.mediasoup.droid.lib.RoomClient;
-import org.mediasoup.droid.lib.RoomOptions;
 
 public class MeView extends RelativeLayout {
 

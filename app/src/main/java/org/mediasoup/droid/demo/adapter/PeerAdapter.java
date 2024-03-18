@@ -1,6 +1,7 @@
 package org.mediasoup.droid.demo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.mediasoup.droid.Logger;
+import com.nolovr.core.mediasoup.lib.RoomClient;
+import com.nolovr.core.mediasoup.lib.lv.RoomStore;
+import com.nolovr.core.mediasoup.lib.model.Peer;
+
 import org.mediasoup.droid.demo.R;
 import org.mediasoup.droid.demo.view.PeerView;
 import org.mediasoup.droid.demo.vm.PeerProps;
-import org.mediasoup.droid.lib.RoomClient;
-import org.mediasoup.droid.lib.lv.RoomStore;
-import org.mediasoup.droid.lib.model.Peer;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PeerAdapter extends RecyclerView.Adapter<PeerAdapter.PeerViewHolder> {
 
@@ -95,7 +97,7 @@ public class PeerAdapter extends RecyclerView.Adapter<PeerAdapter.PeerViewHolder
     }
 
     void bind(LifecycleOwner owner, RoomClient roomClient, @NonNull Peer peer) {
-      Logger.d(TAG, "bind() id: " + peer.getId() + ", name: " + peer.getDisplayName());
+      Log.d(TAG, "bind() id: " + peer.getId() + ", name: " + peer.getDisplayName());
       mPeerProps.connect(owner, peer.getId());
       mPeerView.setProps(mPeerProps, roomClient);
     }

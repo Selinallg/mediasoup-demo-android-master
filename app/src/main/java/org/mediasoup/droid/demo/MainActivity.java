@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.nolovr.core.mediasoup.RoomService;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startService(View view) {
-        startService(new Intent(this,RoomService.class));
+        startService(new Intent(this, RoomService.class));
     }
 
     public void goSettings(View view) {

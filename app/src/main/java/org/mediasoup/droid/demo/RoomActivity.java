@@ -1,8 +1,6 @@
 package org.mediasoup.droid.demo;
 
 import static org.mediasoup.droid.demo.utils.ClipboardCopy.clipboardCopy;
-import static org.mediasoup.droid.lib.Utils.getRandomString;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,22 +24,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
+import com.nolovr.core.mediasoup.lib.PeerConnectionUtils;
+import com.nolovr.core.mediasoup.lib.RoomClient;
+import com.nolovr.core.mediasoup.lib.RoomOptions;
+import com.nolovr.core.mediasoup.lib.Utils;
+import com.nolovr.core.mediasoup.lib.lv.RoomStore;
+import com.nolovr.core.mediasoup.lib.model.Me;
+import com.nolovr.core.mediasoup.lib.model.Notify;
+import com.nolovr.core.mediasoup.lib.model.Peer;
 
 import org.mediasoup.droid.Logger;
 import org.mediasoup.droid.MediasoupClient;
 import org.mediasoup.droid.demo.adapter.PeerAdapter;
-import org.mediasoup.droid.demo.base.ProJActivity;
 import org.mediasoup.droid.demo.databinding.ActivityRoomBinding;
 import org.mediasoup.droid.demo.vm.EdiasProps;
 import org.mediasoup.droid.demo.vm.MeProps;
 import org.mediasoup.droid.demo.vm.RoomProps;
-import org.mediasoup.droid.lib.PeerConnectionUtils;
-import org.mediasoup.droid.lib.RoomClient;
-import org.mediasoup.droid.lib.RoomOptions;
-import org.mediasoup.droid.lib.lv.RoomStore;
-import org.mediasoup.droid.lib.model.Me;
-import org.mediasoup.droid.lib.model.Notify;
-import org.mediasoup.droid.lib.model.Peer;
 
 import java.util.List;
 
@@ -95,11 +92,11 @@ public class RoomActivity extends AppCompatActivity {
       preferences.edit().putString("roomId", mRoomId).apply();
     }
     if (TextUtils.isEmpty(mPeerId)) {
-      mPeerId = getRandomString(8);
+      mPeerId = Utils.getRandomString(8);
       preferences.edit().putString("peerId", mPeerId).apply();
     }
     if (TextUtils.isEmpty(mDisplayName)) {
-      mDisplayName = getRandomString(8);
+      mDisplayName = Utils.getRandomString(8);
       preferences.edit().putString("displayName", mDisplayName).apply();
     }
 

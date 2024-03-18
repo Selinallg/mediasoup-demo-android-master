@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.nolovr.core.mediasoup.lib.RoomClient;
+import com.nolovr.core.mediasoup.lib.lv.RoomStore;
+import com.nolovr.core.mediasoup.lib.model.RoomInfo;
+
 import org.mediasoup.droid.demo.R;
-import org.mediasoup.droid.lib.RoomClient;
-import org.mediasoup.droid.lib.lv.RoomStore;
-import org.mediasoup.droid.lib.model.RoomInfo;
 
 public class RoomProps extends EdiasProps {
 

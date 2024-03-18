@@ -1,6 +1,7 @@
 package org.mediasoup.droid.demo.vm;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
@@ -9,16 +10,18 @@ import androidx.databinding.ObservableField;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
+import com.nolovr.core.mediasoup.lib.lv.RoomStore;
+import com.nolovr.core.mediasoup.lib.model.Consumers;
+import com.nolovr.core.mediasoup.lib.model.Peer;
+import com.nolovr.core.mediasoup.lib.model.Peers;
+
+
 import org.mediasoup.droid.Consumer;
-import org.mediasoup.droid.Logger;
-import org.mediasoup.droid.lib.lv.RoomStore;
-import org.mediasoup.droid.lib.model.Consumers;
-import org.mediasoup.droid.lib.model.Peer;
-import org.mediasoup.droid.lib.model.Peers;
 import org.webrtc.AudioTrack;
 import org.webrtc.VideoTrack;
 
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class PeerProps extends PeerViewProps {
 
@@ -96,7 +99,7 @@ public class PeerProps extends PeerViewProps {
     private Observer<Peers> mPeersObservable =
         peers -> {
           mPeer = peers.getPeer(mPeerId);
-          Logger.w(
+          Log.w(
               TAG,
               "onChanged() id: "
                   + mPeerId

@@ -13,6 +13,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     setContentView(R.layout.activity_splash_screen);
 
     findViewById(R.id.mediasoup)
-        .postDelayed(() -> startActivity(new Intent(this, RoomActivity.class)), 1000);
+        .postDelayed(() -> startActivity(new Intent(this, MainActivity.class)), 1000);
   }
 }

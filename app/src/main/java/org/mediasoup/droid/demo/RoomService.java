@@ -78,7 +78,6 @@ public class RoomService extends Service {
         mRoomStore = new RoomStore();
         initRoomClient();
 
-        initViewModel();
     }
 
     private void loadRoomConfig() {
@@ -129,108 +128,6 @@ public class RoomService extends Service {
                         this, mRoomStore, mRoomId, mPeerId, mDisplayName, mForceH264, mForceVP9, mOptions);
     }
 
-    private void initViewModel() {
-
-//        EdiasProps.Factory factory = new EdiasProps.Factory(getApplication(), mRoomStore);
-//
-//        // Room.
-//        RoomProps roomProps = ViewModelProviders.of(this, factory).get(RoomProps.class);
-//        roomProps.connect(this);
-////        mBinding.invitationLink.setOnClickListener(
-////                v -> {
-////                    String linkUrl = roomProps.getInvitationLink().get();
-////                    clipboardCopy(getApplication(), linkUrl, R.string.invite_link_copied);
-////                });
-////        mBinding.setRoomProps(roomProps);
-//
-//        // Me.
-//        MeProps meProps = ViewModelProviders.of(this, factory).get(MeProps.class);
-//        meProps.connect(this);
-//        mBinding.me.setProps(meProps, mRoomClient);
-//
-//        mBinding.hideVideos.setOnClickListener(
-//                v -> {
-//                    Me me = meProps.getMe().get();
-//                    if (me != null) {
-//                        if (me.isAudioOnly()) {
-//                            mRoomClient.disableAudioOnly();
-//                        } else {
-//                            mRoomClient.enableAudioOnly();
-//                        }
-//                    }
-//                });
-//        mBinding.muteAudio.setOnClickListener(
-//                v -> {
-//                    Me me = meProps.getMe().get();
-//                    if (me != null) {
-//                        if (me.isAudioMuted()) {
-//                            mRoomClient.unmuteAudio();
-//                        } else {
-//                            mRoomClient.muteAudio();
-//                        }
-//                    }
-//                });
-//        mBinding.restartIce.setOnClickListener(v -> mRoomClient.restartIce());
-
-//        // Peers.
-//        mPeerAdapter = new PeerAdapter(mRoomStore, this, mRoomClient);
-//        mBinding.remotePeers.setLayoutManager(new LinearLayoutManager(this));
-//        mBinding.remotePeers.setAdapter(mPeerAdapter);
-//        mRoomStore
-//                .getPeers()
-//                .observe(
-//                        this,
-//                        peers -> {
-//                            List<Peer> peersList = peers.getAllPeers();
-//                            if (peersList.isEmpty()) {
-//                                mBinding.remotePeers.setVisibility(View.GONE);
-//                                mBinding.roomState.setVisibility(View.VISIBLE);
-//                            } else {
-//                                mBinding.remotePeers.setVisibility(View.VISIBLE);
-//                                mBinding.roomState.setVisibility(View.GONE);
-//                            }
-//                            mPeerAdapter.replacePeers(peersList);
-//                        });
-
-        // Notify
-        final Observer<Notify> notifyObserver =
-                notify -> {
-                    if (notify == null) {
-                        return;
-                    }
-                    if ("error".equals(notify.getType())) {
-                        Toast toast = Toast.makeText(this, notify.getText(), notify.getTimeout());
-                        TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-                        toastMessage.setTextColor(Color.RED);
-                        toast.show();
-                    } else if ("message".equals(notify.getType())) {
-                        Toast.makeText(this, notify.getTitle() + "\n" + notify.getText(), notify.getTimeout())
-                                .show();
-                    } else {
-                        Toast.makeText(this, notify.getText(), notify.getTimeout()).show();
-                    }
-                };
-        mRoomStore.getNotify().observe(this, notifyObserver);
-
-//        // Chat
-//        mBinding.chatInput.setImeActionLabel("Send", KeyEvent.KEYCODE_ENTER);
-//        mBinding.chatInput.setOnKeyListener(
-//                (v, keyCode, event) -> {
-//                    String message = mBinding.chatInput.getText().toString().trim();
-//                    if (TextUtils.isEmpty(message)) {
-//                        return false;
-//                    }
-//                    if (keyCode == KeyEvent.KEYCODE_ENTER) {
-//                        if (message.matches("^@bot (.*)")) {
-//                            mRoomClient.sendBotMessage(message);
-//                        } else {
-//                            mRoomClient.sendChatMessage(message);
-//                        }
-//                        mBinding.chatInput.getText().clear();
-//                    }
-//                    return true;
-//                });
-    }
 
     private PermissionHandler permissionHandler =
             new PermissionHandler() {

@@ -20,6 +20,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -40,17 +47,14 @@
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait" />
 
-
-<!--        <service-->
-<!--            android:name=".RoomService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.nolovr.core.space.service.RoomService" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-
-
+        <service
+            android:name=".RoomService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.nolovr.core.space.service.RoomService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

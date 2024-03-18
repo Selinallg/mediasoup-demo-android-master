@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.nolovr.core.mediasoup.lib.RoomClient;
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
-import com.nolovr.core.mediasoup.lib.model.RoomInfo;
+import com.nolovr.core.mediartc.lib.RoomClient;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.model.RoomInfo;
 
 import org.mediasoup.droid.demo.R;
 

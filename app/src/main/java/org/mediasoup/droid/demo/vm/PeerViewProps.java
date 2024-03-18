@@ -5,8 +5,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
-import com.nolovr.core.mediasoup.lib.model.Info;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.model.Info;
 
 import org.json.JSONArray;
 import org.webrtc.AudioTrack;

@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 
-import com.nolovr.core.mediasoup.lib.PeerConnectionUtils;
-import com.nolovr.core.mediasoup.lib.RoomClient;
+import com.nolovr.core.mediartc.lib.PeerConnectionUtils;
+import com.nolovr.core.mediartc.lib.RoomClient;
 
 import org.mediasoup.droid.demo.R;
 import org.mediasoup.droid.demo.databinding.ViewPeerBinding;

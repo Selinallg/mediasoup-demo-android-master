@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
 
 import java.lang.reflect.InvocationTargetException;
 

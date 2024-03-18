@@ -11,7 +11,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.nolovr.core.mediasoup.lib.PeerConnectionUtils;
+import com.nolovr.core.mediartc.lib.PeerConnectionUtils;
 
 
 public class ProJActivity extends AppCompatActivity {

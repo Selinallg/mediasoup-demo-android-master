@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import androidx.databinding.BindingAdapter;
 
-import com.nolovr.core.mediasoup.lib.RoomClient;
-import com.nolovr.core.mediasoup.lib.model.DeviceInfo;
+import com.nolovr.core.mediartc.lib.RoomClient;
+import com.nolovr.core.mediartc.lib.model.DeviceInfo;
 
 import org.mediasoup.droid.demo.vm.MeProps;
 import org.webrtc.SurfaceViewRenderer;

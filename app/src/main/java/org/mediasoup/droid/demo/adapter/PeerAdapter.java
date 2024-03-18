@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nolovr.core.mediasoup.lib.RoomClient;
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
-import com.nolovr.core.mediasoup.lib.model.Peer;
+import com.nolovr.core.mediartc.lib.RoomClient;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.model.Peer;
 
 import org.mediasoup.droid.demo.R;
 import org.mediasoup.droid.demo.view.PeerView;
@@ -21,7 +21,6 @@ import org.mediasoup.droid.demo.vm.PeerProps;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class PeerAdapter extends RecyclerView.Adapter<PeerAdapter.PeerViewHolder> {
 

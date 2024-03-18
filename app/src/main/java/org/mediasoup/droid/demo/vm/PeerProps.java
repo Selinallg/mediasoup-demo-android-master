@@ -10,10 +10,10 @@ import androidx.databinding.ObservableField;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
-import com.nolovr.core.mediasoup.lib.model.Consumers;
-import com.nolovr.core.mediasoup.lib.model.Peer;
-import com.nolovr.core.mediasoup.lib.model.Peers;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.model.Consumers;
+import com.nolovr.core.mediartc.lib.model.Peer;
+import com.nolovr.core.mediartc.lib.model.Peers;
 
 
 import org.mediasoup.droid.Consumer;
@@ -21,7 +21,6 @@ import org.webrtc.AudioTrack;
 import org.webrtc.VideoTrack;
 
 import java.util.Set;
-import java.util.logging.Logger;
 
 public class PeerProps extends PeerViewProps {
 

@@ -24,14 +24,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
-import com.nolovr.core.mediasoup.lib.PeerConnectionUtils;
-import com.nolovr.core.mediasoup.lib.RoomClient;
-import com.nolovr.core.mediasoup.lib.RoomOptions;
-import com.nolovr.core.mediasoup.lib.Utils;
-import com.nolovr.core.mediasoup.lib.lv.RoomStore;
-import com.nolovr.core.mediasoup.lib.model.Me;
-import com.nolovr.core.mediasoup.lib.model.Notify;
-import com.nolovr.core.mediasoup.lib.model.Peer;
+import com.nolovr.core.mediartc.lib.PeerConnectionUtils;
+import com.nolovr.core.mediartc.lib.RoomClient;
+import com.nolovr.core.mediartc.lib.RoomOptions;
+import com.nolovr.core.mediartc.lib.Utils;
+import com.nolovr.core.mediartc.lib.lv.RoomStore;
+import com.nolovr.core.mediartc.lib.model.Me;
+import com.nolovr.core.mediartc.lib.model.Notify;
+import com.nolovr.core.mediartc.lib.model.Peer;
 
 import org.mediasoup.droid.Logger;
 import org.mediasoup.droid.MediasoupClient;

@@ -75,8 +75,8 @@ public class BindingAdapters {
     if (restart_ice_in_progress) {
       view.startAnimation(animation);
     } else {
-      animation.cancel();
-      view.clearAnimation();
+//      animation.cancel();
+//      view.clearAnimation();
     }
   }
 

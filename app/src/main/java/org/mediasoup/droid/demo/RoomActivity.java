@@ -77,7 +77,7 @@ public class RoomActivity extends AppCompatActivity {
     initRoomClient();
 
     getViewModelStore().clear();
-    initViewModel();
+   // initViewModel();
   }
 
   private void loadRoomConfig() {

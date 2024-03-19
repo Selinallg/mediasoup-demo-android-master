@@ -2,10 +2,11 @@ package com.nolovr.core.mediartc;
 
 
 import android.Manifest;
-import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
+import com.nolovr.core.mediartc.base.HatchService;
 import com.nolovr.core.mediartc.lib.PeerConnectionUtils;
 import com.nolovr.core.mediartc.lib.RoomClient;
 import com.nolovr.core.mediartc.lib.RoomOptions;
@@ -22,8 +24,10 @@ import com.nolovr.core.mediartc.lib.lv.RoomStore;
 
 import org.mediasoup.droid.Logger;
 
-
-public class RoomService extends Service {
+/**
+ * 后台服务，启动之后自动创建房间，提供服务
+ */
+public class RoomService extends HatchService {
 
     private static final String TAG = RoomService.class.getSimpleName();
     private static final int REQUEST_CODE_SETTING = 1;
@@ -39,7 +43,7 @@ public class RoomService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        createRoom();
+        _createRoom();
         checkPermission();
     }
 
@@ -50,21 +54,93 @@ public class RoomService extends Service {
         return START_NOT_STICKY;
     }
 
-  // TODO: 2024/3/18 aidl 接口
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return new SMediaCore();
     }
 
 
-    private void createRoom() {
+
+//  @Override
+//  public boolean onCreateOptionsMenu(Menu menu) {
+//    getMenuInflater().inflate(R.menu.room_menu, menu);
+//    return true;
+//  }
+//
+//  @Override
+//  public boolean onOptionsItemSelected(MenuItem item) {
+//    // Handle item selection
+//    if (item.getItemId() == R.id.setting) {
+//      Intent intent = new Intent(this, SettingsActivity.class);
+//      startActivityForResult(intent, REQUEST_CODE_SETTING);
+//      return true;
+//    } else {
+//      return super.onOptionsItemSelected(item);
+//    }
+//  }
+//
+//  @Override
+//  public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//    if (requestCode == REQUEST_CODE_SETTING) {
+//      Logger.d(TAG, "request config done");
+//      // close, dispose room related and clear store.
+//      destroyRoom();
+//      // local config and reCreate room related.
+//      createRoom();
+//      // check permission again. if granted, join room.
+//      checkPermission();
+//    } else {
+//      super.onActivityResult(requestCode, resultCode, data);
+//    }
+//  }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+        _destroyRoom();
+        Intent intent = new Intent();
+        intent.setAction(Constants.ACTION_EXIT_MEDIA_SERVICE);
+        sendBroadcast(intent);
+        Log.d(TAG, "onDestroy: over");
+    }
+
+    @Override
+    public void faultTolerantHandle() {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent();
+                intent.setAction(Constants.ACTION_BIND_MEDIA_SERVICE);
+                sendBroadcast(intent);
+            }
+        });
+    }
+
+
+    //-----------------------------------内部接口开始---------------------------
+
+
+
+    private void _createRoom() {
         mOptions = new RoomOptions();
         loadRoomConfig();
 
         mRoomStore = new RoomStore();
         initRoomClient();
 
+    }
+
+
+    private void _destroyRoom() {
+        if (mRoomClient != null) {
+            mRoomClient.close();
+            mRoomClient = null;
+        }
+        if (mRoomStore != null) {
+            mRoomStore = null;
+        }
     }
 
     private void loadRoomConfig() {
@@ -140,53 +216,47 @@ public class RoomService extends Service {
         Permissions.check(this, permissions, rationale, options, permissionHandler);
     }
 
-    private void destroyRoom() {
-        if (mRoomClient != null) {
-            mRoomClient.close();
-            mRoomClient = null;
-        }
-        if (mRoomStore != null) {
-            mRoomStore = null;
-        }
-    }
 
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//    getMenuInflater().inflate(R.menu.room_menu, menu);
-//    return true;
-//  }
-//
-//  @Override
-//  public boolean onOptionsItemSelected(MenuItem item) {
-//    // Handle item selection
-//    if (item.getItemId() == R.id.setting) {
-//      Intent intent = new Intent(this, SettingsActivity.class);
-//      startActivityForResult(intent, REQUEST_CODE_SETTING);
-//      return true;
-//    } else {
-//      return super.onOptionsItemSelected(item);
-//    }
-//  }
-//
-//  @Override
-//  public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//    if (requestCode == REQUEST_CODE_SETTING) {
-//      Logger.d(TAG, "request config done");
-//      // close, dispose room related and clear store.
-//      destroyRoom();
-//      // local config and reCreate room related.
-//      createRoom();
-//      // check permission again. if granted, join room.
-//      checkPermission();
-//    } else {
-//      super.onActivityResult(requestCode, resultCode, data);
-//    }
-//  }
+    //-----------------------------------内部接口结束---------------------------
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        destroyRoom();
+
+
+    class SMediaCore extends IMediaCore.Stub {
+
+        @Override
+        public void createRoom(String who) throws RemoteException {
+            _createRoom();
+        }
+
+        @Override
+        public void destroyRoom(String who) throws RemoteException {
+            _destroyRoom();
+        }
+
+        @Override
+        public void configChanged(String json) throws RemoteException {
+
+        }
+
+        @Override
+        public void action(String json) throws RemoteException {
+
+        }
+
+        @Override
+        public void request(String parmaJson, IRequestListener listener) throws RemoteException {
+
+        }
+
+        @Override
+        public void registerGlobalListener(String pkg, IGlobalListener listener) throws RemoteException {
+
+        }
+
+        @Override
+        public void unregisterGlobalListener(String pkg) throws RemoteException {
+
+        }
     }
 
 }

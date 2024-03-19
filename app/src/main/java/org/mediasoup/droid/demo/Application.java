@@ -1,16 +1,18 @@
 package org.mediasoup.droid.demo;
 
-import org.mediasoup.droid.Logger;
-import org.mediasoup.droid.MediasoupClient;
+import com.nolovr.core.mc.MediaCore;
 
 public class Application extends android.app.Application {
 
-  @Override
-  public void onCreate() {
-    super.onCreate();
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        MediaCore.getInstance(this).init();
+    }
 
-    Logger.setLogLevel(Logger.LogLevel.LOG_DEBUG);
-    Logger.setDefaultHandler();
-    MediasoupClient.initialize(getApplicationContext());
-  }
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        MediaCore.getInstance(this).release();
+    }
 }

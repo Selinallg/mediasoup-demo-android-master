@@ -8,7 +8,7 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.nolovr.core.space.service.RoomService" />
+                <action android:name="com.nolovr.core.space.service.MediaService" />
             </intent-filter>
         </service>
     </application>

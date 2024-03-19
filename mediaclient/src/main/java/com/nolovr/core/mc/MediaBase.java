@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
@@ -18,7 +19,7 @@ public class MediaBase {
     private static final String TAG = "MediaBase";
     private static String PACKAGE_NAME;
     protected Context pContext;
-    IMediaCore pIMediaCore;
+    protected IMediaCore pIMediaCore;
 
     protected MediaBase(Context context) {
         pContext = context;
@@ -28,10 +29,15 @@ public class MediaBase {
 
     public void init() {
         Log.d(TAG, "init: ");
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Constants.ACTION_BIND_MEDIA_SERVICE);
+        filter.addAction(Constants.ACTION_EXIT_MEDIA_SERVICE);
+        pContext.registerReceiver(mbinderReceiver, filter);
     }
 
     public void release() {
         Log.d(TAG, "release: ");
+        pContext.unregisterReceiver(mbinderReceiver);
     }
 
 
@@ -67,13 +73,13 @@ public class MediaBase {
             }
         } catch (Exception e) {
             //e.printStackTrace();
-            Log.e(TAG, "unBind: unregister3DofDataListener throw execption");
+            Log.e(TAG, "unBind: media_client throw execption");
         }
         try {
             pContext.unbindService(conn);
         } catch (Exception e) {
             // e.printStackTrace();
-            Log.e(TAG, "unBind: unbindService throw execption");
+            Log.e(TAG, "unBind: media_client unbindService throw execption");
         }
         Log.d(TAG, "media_client unbind Success!!!");
     }

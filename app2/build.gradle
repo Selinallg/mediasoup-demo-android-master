@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.nolovr.core.app2'
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.nolovr.core.app2"
+        minSdk 21
+        targetSdk 28
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+    implementation project(path: ':mediaclient')
+    implementation project(path: ':mediartc')
+
+
+}

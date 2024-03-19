@@ -1,3 +1,5 @@
 include ':app'
 include ':mediartc'
 include ':mediaclient'
+include ':mediaipc'
+include ':app2'

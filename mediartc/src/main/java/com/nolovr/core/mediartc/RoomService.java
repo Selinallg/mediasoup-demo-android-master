@@ -45,6 +45,7 @@ public class RoomService extends HatchService {
         super.onCreate();
         _createRoom();
         checkPermission();
+        Log.e(TAG, "onCreate: ----------");
     }
 
 
@@ -98,12 +99,12 @@ public class RoomService extends HatchService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
+        Log.e(TAG, "onDestroy: ");
         _destroyRoom();
         Intent intent = new Intent();
         intent.setAction(Constants.ACTION_EXIT_MEDIA_SERVICE);
         sendBroadcast(intent);
-        Log.d(TAG, "onDestroy: over");
+        Log.e(TAG, "onDestroy: over");
     }
 
     @Override

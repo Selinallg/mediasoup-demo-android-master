@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(this, RoomService.class));
     }
 
+
+    public void stopService(View view) {
+        stopService(new Intent(this, RoomService.class));
+    }
+
     public void goSettings(View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }

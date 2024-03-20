@@ -30,5 +30,10 @@ android {
 dependencies {
     implementation project(path: ':mediaclient')
     implementation project(path: ':mediartc')
-    implementation 'com.nabinbhandari.android:permissions:3.8'
+
+//    implementation fileTree(dir: '../warehouse', include: ['mediartc-core-v1.0-2.aar'])
+//    implementation fileTree(dir: '../warehouse', include: ['mediartc-client-v1.0-2.aar'])
+//    implementation 'io.github.haiyangwu:mediasoup-client:3.4.0'
+//    implementation 'com.nabinbhandari.android:permissions:3.8'
+//    implementation 'org.protoojs.droid:protoo-client:4.0.3'
 }

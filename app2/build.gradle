@@ -28,9 +28,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.nabinbhandari.android:permissions:3.8'
     implementation project(path: ':mediaclient')
     implementation project(path: ':mediartc')
-
-
+    implementation 'com.nabinbhandari.android:permissions:3.8'
 }

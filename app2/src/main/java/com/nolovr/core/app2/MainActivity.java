@@ -1,16 +1,15 @@
 package com.nolovr.core.app2;
 
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nolovr.core.mediartc.RoomService;
 
 public class MainActivity extends Activity {
+
+    // TODO: 2024/3/20 camera 授权
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -62,7 +62,6 @@ public class RoomService extends HatchService {
     }
 
 
-
 //  @Override
 //  public boolean onCreateOptionsMenu(Menu menu) {
 //    getMenuInflater().inflate(R.menu.room_menu, menu);
@@ -121,7 +120,6 @@ public class RoomService extends HatchService {
 
 
     //-----------------------------------内部接口开始---------------------------
-
 
 
     private void _createRoom() {
@@ -221,42 +219,44 @@ public class RoomService extends HatchService {
     //-----------------------------------内部接口结束---------------------------
 
 
-
     class SMediaCore extends IMediaCore.Stub {
 
         @Override
         public void createRoom(String who) throws RemoteException {
+            Log.d(TAG, "createRoom: who=" + who);
             _createRoom();
         }
 
         @Override
         public void destroyRoom(String who) throws RemoteException {
+            Log.d(TAG, "destroyRoom: who=" + who);
             _destroyRoom();
         }
 
         @Override
         public void configChanged(String json) throws RemoteException {
+            Log.d(TAG, "configChanged: json=" + json);
 
         }
 
         @Override
         public void action(String json) throws RemoteException {
-
+            Log.d(TAG, "action: " + json);
         }
 
         @Override
         public void request(String parmaJson, IRequestListener listener) throws RemoteException {
-
+            Log.d(TAG, "request: " + parmaJson);
         }
 
         @Override
         public void registerGlobalListener(String pkg, IGlobalListener listener) throws RemoteException {
-
+            Log.d(TAG, "registerGlobalListener: pkg=" + pkg);
         }
 
         @Override
         public void unregisterGlobalListener(String pkg) throws RemoteException {
-
+            Log.d(TAG, "unregisterGlobalListener: pkg=" + pkg);
         }
     }
 

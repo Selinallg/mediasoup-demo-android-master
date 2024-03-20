@@ -38,11 +38,32 @@
     </Button>
 
     <Button
+        android:id="@+id/settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_stop_service"
         android:onClick="goSettings"
         android:text="settings">
+
+    </Button>
+
+
+    <Button
+        android:id="@+id/room_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings"
+        android:onClick="goRoomA"
+        android:text="room_A">
+
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/room_a"
+        android:onClick="goRoomB"
+        android:text="room_B">
 
     </Button>
 

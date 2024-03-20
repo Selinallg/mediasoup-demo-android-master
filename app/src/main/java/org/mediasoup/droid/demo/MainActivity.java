@@ -37,13 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void goRoomA(View view) {
         UrlFactory.HOSTNAME = "82.157.172.119";
-        UrlFactory.PORT = 4443;
-        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT, Toast.LENGTH_LONG).show();
+        UrlFactory.PORT_WSS = 4443;
+        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT_WSS, Toast.LENGTH_LONG).show();
     }
 
     public void goRoomB(View view) {
         UrlFactory.HOSTNAME = "8.147.104.161";
-        UrlFactory.PORT = 3000;
-        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT, Toast.LENGTH_LONG).show();
+//        UrlFactory.PORT = 3000;
+        UrlFactory.PORT_WSS = 4443;
+        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT_WSS, Toast.LENGTH_LONG).show();
     }
 }

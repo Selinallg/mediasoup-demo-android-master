@@ -32,6 +32,7 @@ import com.nolovr.core.mediartc.lib.lv.RoomStore;
 import com.nolovr.core.mediartc.lib.model.Me;
 import com.nolovr.core.mediartc.lib.model.Notify;
 import com.nolovr.core.mediartc.lib.model.Peer;
+import com.nolovr.core.mediartc.settings.SettingsActivity;
 
 import org.mediasoup.droid.Logger;
 import org.mediasoup.droid.MediasoupClient;

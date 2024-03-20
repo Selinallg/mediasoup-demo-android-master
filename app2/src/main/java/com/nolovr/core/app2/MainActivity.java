@@ -32,6 +32,11 @@ public class MainActivity extends Activity {
     }
 
 
+    public void goSettings(View view) {
+       // startActivity(new Intent(this, SettingsActivity.class));
+    }
+
+
 
 //    private PermissionHandler permissionHandler =
 //            new PermissionHandler() {

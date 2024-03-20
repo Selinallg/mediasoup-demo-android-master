@@ -43,10 +43,6 @@
             android:label="@string/title_activity_room"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait" />
 
     </application>
 

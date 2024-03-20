@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.nolovr.core.mediartc.RoomService;
 import com.nolovr.core.mediartc.lib.UrlFactory;
+import com.nolovr.core.mediartc.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,0 +1,25 @@
+<resources>
+
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="room_header">Room</string>
+    <string name="device_header">Device</string>
+
+    <!-- Room Preferences -->
+    <string name="room_id">roomId</string>
+    <string name="peer_id">peerId</string>
+    <string name="display_name">displayName</string>
+    <string name="force_tcp">forceTcp</string>
+    <string name="force_h264">forceH264</string>
+    <string name="produce">produce</string>
+    <string name="consume">consume</string>
+    <string name="dataChannel">dataChannel</string>
+    <string name="mic">mic</string>
+    <string name="preview">preview</string>
+    <string name="force_vp9">forceVP9</string>
+
+    <!-- Device Preferences -->
+    <string name="camera">camera</string>
+</resources>

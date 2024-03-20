@@ -1,9 +1,9 @@
-package org.mediasoup.droid.demo;
+package com.nolovr.core.mediartc.settings;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
+import com.nolovr.core.mediasettings.R;
 
 
 public class SettingsActivity extends AppCompatActivity {

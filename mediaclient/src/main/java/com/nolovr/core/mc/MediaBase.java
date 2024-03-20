@@ -24,7 +24,7 @@ public class MediaBase {
     protected MediaBase(Context context) {
         pContext = context;
         PACKAGE_NAME = pContext.getPackageName();
-        Log.d(TAG, "MediaBase: ");
+        Log.e(TAG, "MediaBase: " + PACKAGE_NAME);
     }
 
     public void init() {
@@ -63,7 +63,7 @@ public class MediaBase {
         intent.setClassName(PACKAGE_NAME,
                 "com.nolovr.core.space.service.MediaService");
         boolean ret = pContext.bindService(intent, conn, Context.BIND_AUTO_CREATE);
-        Log.d(TAG, "init: bindService=" + ret);
+        Log.d(TAG, "doBind: bindService=" + ret);
     }
 
 
@@ -77,11 +77,12 @@ public class MediaBase {
         }
         try {
             pContext.unbindService(conn);
+            Log.d(TAG, "media_client unbind Success!!!");
         } catch (Exception e) {
             // e.printStackTrace();
             Log.e(TAG, "unBind: media_client unbindService throw execption");
         }
-        Log.d(TAG, "media_client unbind Success!!!");
+        Log.d(TAG, "media_client unbind finish!!!");
     }
 
 
@@ -89,11 +90,11 @@ public class MediaBase {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            Log.d(TAG, "CONTROLLER_SERVICE receive action: " + action);
+            Log.d(TAG, "Media Service receive action: " + action);
             if (Constants.ACTION_BIND_MEDIA_SERVICE.equals(action)) {
-                unBind();
-            } else if (Constants.ACTION_EXIT_MEDIA_SERVICE.equals(action)) {
                 doBind();
+            } else if (Constants.ACTION_EXIT_MEDIA_SERVICE.equals(action)) {
+                unBind();
             }
         }
     };

@@ -18,8 +18,8 @@ public class MediaCore extends MediaBase{
         super(context);
         pContext = context;
         String FLAG = context.getPackageName() + ":" + TAG;
-        Log.d(TAG, "TerminalClient: " + FLAG);
-        Log.d(TAG, "TerminalClient: expCallbackMap:" + this.hashCode());
+        Log.d(TAG, "MediaCore: " + FLAG);
+        Log.d(TAG, "MediaCore: " + this.hashCode());
     }
 
     public static MediaCore getInstance(Context context) {

@@ -13,10 +13,31 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            android.libraryVariants.all { variant ->
+                variant.outputs.all {
+                    //outputFileName = "mediartc-core-v${defaultConfig.versionName}-${defaultConfig.versionCode}-${new Date().format("yyyyMMdd-HHmmss")}.aar"
+                    outputFileName = "mediartc-core-v${defaultConfig.versionName}-${defaultConfig.versionCode}.aar"
+                }
+            }
+
+        }
+
+        release {
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            android.libraryVariants.all { variant ->
+                variant.outputs.all {
+                    //outputFileName = "mediartc-core-v${defaultConfig.versionName}-${defaultConfig.versionCode}-${new Date().format("yyyyMMdd-HHmmss")}.aar"
+                    outputFileName = "mediartc-core-v${defaultConfig.versionName}-${defaultConfig.versionCode}.aar"
+                }
+            }
         }
     }
     compileOptions {
@@ -27,6 +48,4 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.11.0'
 }

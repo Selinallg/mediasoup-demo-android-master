@@ -4,6 +4,7 @@
     <application>
         <activity
             android:name="com.nolovr.core.mediartc.settings.SettingsActivity"
+            android:theme="@style/AppTheme"
             android:enabled="true"
             android:exported="true"
             android:label="@string/title_activity_settings"

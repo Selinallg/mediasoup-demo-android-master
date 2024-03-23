@@ -5,7 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import com.nolovr.core.mediartc.RoomService;
+import com.nolovr.core.mediartc.lib.UrlFactory;
+import com.nolovr.core.mediartc.settings.SettingsActivity;
 
 public class MainActivity extends Activity {
 
@@ -22,7 +26,18 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
-    public void startService(View view) {
+    public void startAService(View view) {
+        UrlFactory.HOSTNAME = "82.157.172.119";
+        UrlFactory.PORT_WSS = 4443;
+        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT_WSS, Toast.LENGTH_LONG).show();
+        startService(new Intent(this, RoomService.class));
+    }
+
+
+    public void startBService(View view) {
+        UrlFactory.HOSTNAME = "8.147.104.161";
+        UrlFactory.PORT_WSS = 4443;
+        Toast.makeText(this, UrlFactory.HOSTNAME + ":" + UrlFactory.PORT_WSS, Toast.LENGTH_LONG).show();
         startService(new Intent(this, RoomService.class));
     }
 
@@ -33,7 +48,7 @@ public class MainActivity extends Activity {
 
 
     public void goSettings(View view) {
-       // startActivity(new Intent(this, SettingsActivity.class));
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
 

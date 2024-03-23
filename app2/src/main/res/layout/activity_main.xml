@@ -13,8 +13,16 @@
         android:text="Hello World!" />
 
     <Button
-        android:onClick="startService"
-        android:text="start"
+        android:onClick="startAService"
+        android:text="startA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+    <Button
+        android:onClick="startBService"
+        android:text="startB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

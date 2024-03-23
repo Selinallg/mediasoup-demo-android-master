@@ -13,8 +13,8 @@ public class UrlFactory {
     //https://8.147.104.161:3000/?info=true&roomId=ucsuhgeg
     //https://82.157.172.119:3000/?info=true&roomId=ucsuhgeg
 //  private static final String HOSTNAME = "v3demo.mediasoup.org";
-//  private static final String HOSTNAME = "82.157.172.119";
-    public static String HOSTNAME = "8.147.104.161";
+    public static String HOSTNAME = "82.157.172.119";
+    //    public static String HOSTNAME = "8.147.104.161";
     //  private static final String HOSTNAME = "192.168.1.103";
 //  private static final int PORT = 4443;
     public static int PORT_WSS = 4443;
